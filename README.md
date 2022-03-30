@@ -1,2 +1,4 @@
 # Libft
-re-creation a lib c, this is the first exercise on 42 school.
+
+--MOTIVO
+Esse projeto vai te fazer treinar C, e desenvolver suas futuras ferramentas que serão usadas nos proximos projetos
