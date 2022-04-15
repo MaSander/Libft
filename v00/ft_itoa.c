@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -24,27 +25,28 @@ char	*ft_itoa(int n)
 	count = n;
 	isnegative = 0;
 	if (n < 0)
-	{
-		count = count * -1;
 		isnegative++;
-	}
-	while (count >= 1)
+	while (count != 0)
 	{
 		count = count / 10;
 		i++;
 	}
-	result = malloc((i + isnegative + 2) * sizeof(char));
-	result[i + isnegative + 2] = '\0';
-	if (isnegative)
-		result[0] = '-';
-	count = 0;
-	while (i >= 0)
+	if (n == 0)
+		i++;
+	result = malloc((i + isnegative + 1));
+	result[i + isnegative] = '\0';
+	while (i-- >= 0)
 	{
-		result[i] = (n % 10) + '0';
+		count = (n % 10);
+		if(count < 0)
+			count = count * -1;
+		result[i] = count + '0';
 		n = n / 10;
-		count++;
-		i--;
 	}
-	result[count + 1] = '\0';
+	if (isnegative)
+	{
+		ft_memcpy(result+1, result, ft_strlen(result));
+		result[0] = '-';
+	}
 	return (result);
 }

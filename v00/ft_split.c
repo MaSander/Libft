@@ -15,70 +15,47 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-// void	old_version(char const *s, char c)
-// {
-// 	g_i = 0;
-// 	g_x = 0;
-// 	g_y = 0;
-// 	g_clipping = malloc((int)ft_strlen(s) * sizeof(char));
-// 	g_charger = malloc((int)ft_strlen(s) * sizeof(char));
-// 	while ((int)ft_strlen(s) >= g_i)
-// 	{
-// 		if (s[g_i] == c || s[g_i] == 0)
-// 		{
-// 			g_charger[g_y] = malloc(g_x * sizeof(char));
-// 			ft_memmove(g_charger[g_y], g_clipping, g_x);
-// 			ft_memset(g_clipping, 0, g_x);
-// 			g_x = 0;
-// 			g_y++;
-// 		}
-// 		else
-// 		{
-// 			g_clipping[g_x] = s[g_i];
-// 			g_x++;
-// 		}
-// 		g_i++;
-// 	}
-// 	//return (g_charger);
-// }
+char **g_charger;
 
+void	splitcharger(char const *s, char c)
+{
+	size_t	breaks;
+	int		count;
+
+	breaks = 0;
+	count = 0;
+	while(s[count])
+	{
+		if(s[count] == c)
+			breaks++;
+		count++;
+	}
+	g_charger = malloc(breaks++);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	i;
-	size_t	y;
-	size_t	breaks;
-	char	*clipping;
-	char	**charger;
+	int	i;
+	int	lastpoint;
+	int	clipperlen;
+	int	occurrences;
 
 	i = 0;
-	breaks = 1;
+	lastpoint = 0;
+	clipperlen = 0;
+	occurrences = 0;
+	splitcharger(s, c);
 	while (s[i])
 	{
-		if (s[i] == c)
-			breaks++;
+		if(s[i] == c)
+		{
+			g_charger[occurrences] = ft_substr(s, lastpoint, clipperlen);
+			lastpoint = i+1;
+			clipperlen = -1;
+			occurrences++;
+		}
+		clipperlen++;
 		i++;
 	}
-
-	i = 0;
-	y = 0;
-	charger = malloc(breaks * sizeof(char));
-	clipping = malloc((ft_strlen(s) - breaks) * sizeof(char));
-	while (*s)
-	{
-		if (*s == c)
-		{
-			ft_memmove(charger[y], clipping, i);
-			y++;
-			i = 0;
-		}
-		else
-		{
-			clipping[i] = *s;
-			i++;
-		}
-		s++;
-	}
-	charger[breaks ] = '\0';
-	return (charger);
+	return (g_charger);
 }
