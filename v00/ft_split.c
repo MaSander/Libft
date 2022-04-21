@@ -15,47 +15,53 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char **g_charger;
-
-void	splitcharger(char const *s, char c)
+static int	ft_occurrences(const char *s, char c)
 {
-	size_t	breaks;
-	int		count;
-
-	breaks = 0;
-	count = 0;
-	while(s[count])
-	{
-		if(s[count] == c)
-			breaks++;
-		count++;
-	}
-	g_charger = malloc(breaks++);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	int	i;
-	int	lastpoint;
-	int	clipperlen;
 	int	occurrences;
+	int	ifnotequal;
 
-	i = 0;
-	lastpoint = 0;
-	clipperlen = 0;
 	occurrences = 0;
-	splitcharger(s, c);
-	while (s[i])
+	ifnotequal = 0;
+	while(*s)
 	{
-		if(s[i] == c)
+		if (*s != c && ifnotequal == 0)
 		{
-			g_charger[occurrences] = ft_substr(s, lastpoint, clipperlen);
-			lastpoint = i+1;
-			clipperlen = -1;
+			ifnotequal = 1;
 			occurrences++;
 		}
-		clipperlen++;
-		i++;
+		if(*s == c)
+			ifnotequal = 0;
+		s++;
 	}
-	return (g_charger);
+	return (occurrences);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		index;
+	int		split;
+	char	**array;
+	
+	if (!s)
+		return (NULL);
+	array = ft_calloc(ft_occurrences(s, c)+1,sizeof(char *));
+	if (!array)
+		return (NULL);
+	split = 0;
+	index = 0;
+	while (*s)
+	{
+		if (*s != c)
+			split++;
+		if (*s == c && split > 0)
+		{
+			array[index] = ft_substr(s-split, 0, split);
+			index++;
+			split = 0;
+		}
+		s++;
+	}
+	if(split)
+		array[index] = ft_substr(s-split, 0, split);
+	return (array);
 }
