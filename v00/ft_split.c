@@ -37,13 +37,12 @@ static	int	ft_occurrences(const char *s, char c)
 
 char	**ft_split(const char *s, char c)
 {
+	int		index;
 	int		split;
 	char	**array;
 
-	if (!s)
-		return (NULL);
 	array = ft_calloc(ft_occurrences(s, c) + 1, sizeof(char *));
-	if (!array)
+	if (!array || !s)
 		return (NULL);
 	split = 0;
 	index = 0;
