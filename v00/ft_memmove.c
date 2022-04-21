@@ -11,27 +11,22 @@
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char			srccpy[ft_strlen(src)];
 	const char		*origin;
 	char			*result;
-	size_t					i;
+	size_t			i;
 
 	result = (char *)dest;
-	origin = ft_memcpy(srccpy, src, ft_strlen(src));
+	origin = (char *)src;
 	i = 0;
 	if (!result && !origin)
 		return (NULL);
 	if (origin < result)
 	{
-		while (n--)
-		{
-			result[i] = origin[i];
-			i++;
-		}
+		while (++i <= n)
+			result[n - i] = origin[n - i];
 	}
 	else
 		while (n--)

@@ -38,7 +38,7 @@ char	*ft_itoa(int n)
 	while (i-- >= 0)
 	{
 		count = (n % 10);
-		if(count < 0)
+		if (count < 0)
 			count = count * -1;
 		result[i] = count + '0';
 		n = n / 10;
