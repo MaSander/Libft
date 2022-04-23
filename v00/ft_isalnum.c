@@ -6,7 +6,7 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/04 18:30:15 by boss              #+#    #+#             */
-/*   Updated: 2021/09/16 14:12:12 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/23 01:25:26 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@
 int	ft_isalnum(int c)
 {
 	if (ft_isdigit(c) || ft_isalpha(c))
-		return (8);
+		return (1);
 	return (0);
 }

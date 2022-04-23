@@ -61,5 +61,5 @@ rebonus:    fclean bonus
 .PHONY:		all clean fclean re bonus rebonus
 
 so:
-			$(CC) -nostartfiles -c -fPIC $(CFLAGS) $(SRCS)
+			$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
 			gcc -nostartfiles -shared -o libft.so $(OBJS)

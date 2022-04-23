@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:02:50 by msander-          #+#    #+#             */
-/*   Updated: 2022/01/14 01:12:13 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/23 02:28:40 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,13 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	srclen = ft_strlen(src);
 	if (dstlen >= size)
 		return (size + srclen);
-	while ((i < size - dstlen) && ((char)src[i]))
+	while ((i <= (size - dstlen)) && (src[i]))
 	{
 		dst[dstlen + i] = src[i];
 		i++;
 	}
-	dst[size - 1] = '\0';
+	if (size == (i + dstlen))
+		dst[i + dstlen - 1] = '\0';
+	dst[i + dstlen] = '\0';
 	return (dstlen + srclen);
 }
