@@ -15,7 +15,8 @@
 
 #include <stddef.h>
 #include <stdlib.h>
-# include <stddef.h>
+
+# define INT_MIN -2147483648
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
