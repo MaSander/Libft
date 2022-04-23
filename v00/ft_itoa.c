@@ -10,41 +10,50 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-char	*ft_itoa(int n)
+static	int	ft_deciamichouselen(long n)
 {
-	int		i;
-	int		count;
-	int		isnegative;
-	char	*result;
+	int	i;
 
 	i = 0;
-	count = n;
-	isnegative = 0;
-	if (n < 0)
+	if (n == 0)
+		i++;
+	while (n != 0)
 	{
-		count = count * -1;
-		isnegative++;
-	}
-	while (count >= 1)
-	{
-		count = count / 10;
+		n = n / 10;
 		i++;
 	}
-	result = malloc((i + isnegative + 2) * sizeof(char));
-	result[i + isnegative + 2] = '\0';
+	return (i);
+}
+
+char	*ft_itoa(int n)
+{
+	int			strlen;
+	long		num;
+	int			isnegative;
+	char		*result;
+
+	num = n;
+	isnegative = 0;
+	if (num < 0)
+	{
+		isnegative++;
+		num = (num * -1);
+	}
+	strlen = (ft_deciamichouselen(n) + isnegative);
+	result = malloc(strlen + 1);
+	if (!result)
+		return (NULL);
+	result[strlen] = '\0';
 	if (isnegative)
 		result[0] = '-';
-	count = 0;
-	while (i >= 0)
+	while (strlen-- > isnegative)
 	{
-		result[i] = (n % 10) + '0';
-		n = n / 10;
-		count++;
-		i--;
+		result[strlen] = ((num % 10) + '0');
+		num = (num / 10);
 	}
-	result[count + 1] = '\0';
 	return (result);
 }

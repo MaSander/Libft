@@ -14,32 +14,37 @@
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_strtrim(char const *s1, char const *set)
+size_t	find_trimmed_amount(char const *s1, char const *set)
 {
-	int			isequal;
-	size_t		s1len;
-	char		*str;
-	size_t		i;
+	size_t	len;
 
-	s1len = ft_strlen(s1);
-	str = malloc((s1len + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
+	len = 1;
 	while (*s1)
 	{
-		isequal = 0;
-		i = ft_strlen(set);
-		while (i)
-		{
-			if (*s1 == set[i])
-				isequal = 1;
-			i--;
-		}
-		if (isequal)
-			((char *)str)[ft_strlen(str) + 1] = *s1;
+		if (ft_strrchr(set, *s1) == 0)
+			len++;
 		s1++;
 	}
-	str[s1len + 1] = '\0';
-	printf("\nRESULT: %s\n", str);
-	return (str);
+	return (len);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	int		i;
+	char	*trimmed;
+
+	i = 0;
+	if (set == NULL)
+		return (NULL);
+	trimmed = ft_calloc(find_trimmed_amount(s1, set), 1);
+	while (*s1)
+	{
+		if (ft_strrchr(set, *s1) == 0)
+		{
+			trimmed[i] = *s1;
+			i++;
+		}
+		s1++;
+	}
+	return (trimmed);
 }

@@ -21,9 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i1 = ft_strlen(s1);
 	i2 = ft_strlen(s2);
-	str = malloc((i1 + i2 + 1) * sizeof(char));
-	ft_memcpy(str, s1, i1);
-	ft_memcpy((str + i1), s2, i2);
-	str[i1 + i2 + 1] = '\0';
+	str = ft_calloc((i1 + i2 + 1), sizeof(char));
+	ft_strlcpy(str, s1, i1 + 1);
+	ft_strlcat(str, s2, (i2 + i1 + 1));
 	return (str);
 }

@@ -28,11 +28,10 @@ int	ft_atoi(const char *str)
 		s++;
 	while (ft_isdigit(str[s]))
 	{
-		if (str[s-1] == '-')
+		if (str[s - 1] == '-')
 			signal = -1;
 		number = (number * 10) + (str[s] - 48);
 		s++;
 	}
-	
 	return (number * signal);
 }

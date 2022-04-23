@@ -10,24 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 #include <stdlib.h>
 
 void	*ft_calloc(size_t num, size_t size)
 {
 	size_t	*ptr;
-	size_t	count;
 
 	if ((num * size) == 1 && (num + size) != 2)
-		return NULL;
+		return (NULL);
 	if (num == 0 || size == 0)
-		return NULL;
+		return (NULL);
 	ptr = malloc(num * size);
-	count = 0;
-	while (count < (num * size))
-	{
-		ptr[count] = 0;
-		count++;
-	}
+	ft_bzero(ptr, num * size);
 	return (ptr);
 }

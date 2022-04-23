@@ -10,75 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 
-// void	old_version(char const *s, char c)
-// {
-// 	g_i = 0;
-// 	g_x = 0;
-// 	g_y = 0;
-// 	g_clipping = malloc((int)ft_strlen(s) * sizeof(char));
-// 	g_charger = malloc((int)ft_strlen(s) * sizeof(char));
-// 	while ((int)ft_strlen(s) >= g_i)
-// 	{
-// 		if (s[g_i] == c || s[g_i] == 0)
-// 		{
-// 			g_charger[g_y] = malloc(g_x * sizeof(char));
-// 			ft_memmove(g_charger[g_y], g_clipping, g_x);
-// 			ft_memset(g_clipping, 0, g_x);
-// 			g_x = 0;
-// 			g_y++;
-// 		}
-// 		else
-// 		{
-// 			g_clipping[g_x] = s[g_i];
-// 			g_x++;
-// 		}
-// 		g_i++;
-// 	}
-// 	//return (g_charger);
-// }
-
-
-char	**ft_split(char const *s, char c)
+static	int	ft_occurrences(const char *s, char c)
 {
-	size_t	i;
-	size_t	y;
-	size_t	breaks;
-	char	*clipping;
-	char	**charger;
+	int	occurrences;
+	int	ifnotequal;
 
-	i = 0;
-	breaks = 1;
-	while (s[i])
-	{
-		if (s[i] == c)
-			breaks++;
-		i++;
-	}
-
-	i = 0;
-	y = 0;
-	charger = malloc(breaks * sizeof(char));
-	clipping = malloc((ft_strlen(s) - breaks) * sizeof(char));
+	occurrences = 0;
+	ifnotequal = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if ((*s != c) && (ifnotequal == 0))
 		{
-			ft_memmove(charger[y], clipping, i);
-			y++;
-			i = 0;
+			ifnotequal = 1;
+			occurrences++;
 		}
-		else
+		if (*s == c)
+			ifnotequal = 0;
+		s++;
+	}
+	return (occurrences);
+}
+
+char	**ft_split(const char *s, char c)
+{
+	int		index;
+	int		split;
+	char	**array;
+
+	array = ft_calloc(ft_occurrences(s, c) + 1, sizeof(char *));
+	if (!array || !s)
+		return (NULL);
+	split = 0;
+	index = 0;
+	while (*s)
+	{
+		if (*s != c)
+			split++;
+		if (*s == c && split > 0)
 		{
-			clipping[i] = *s;
-			i++;
+			array[index] = ft_substr(s - split, 0, split);
+			index++;
+			split = 0;
 		}
 		s++;
 	}
-	charger[breaks ] = '\0';
-	return (charger);
+	if (split)
+		array[index] = ft_substr(s - split, 0, split);
+	return (array);
 }
