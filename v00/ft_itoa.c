@@ -16,10 +16,10 @@
 
 static	int	ft_deciamichouselen(long n)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	if(n == 0)
+	if (n == 0)
 		i++;
 	while (n != 0)
 	{
@@ -45,13 +45,11 @@ char	*ft_itoa(int n)
 	}
 	strlen = (ft_deciamichouselen(n) + isnegative);
 	result = malloc(strlen + 1);
-	if(!result)
+	if (!result)
 		return (NULL);
 	result[strlen] = '\0';
 	if (isnegative)
-	{
 		result[0] = '-';
-	}
 	while (strlen-- > isnegative)
 	{
 		result[strlen] = ((num % 10) + '0');

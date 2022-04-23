@@ -18,8 +18,8 @@ char	*ft_strdup(const char *s)
 	char	*newstr;
 	int		ssize;
 
-	ssize = ft_strlen(s);
-	newstr = ft_calloc(1, (ssize + 1));
-	ft_memcpy(newstr, s, ssize);
+	ssize = ft_strlen(s) + 1;
+	newstr = ft_calloc(ssize, sizeof(char));
+	ft_strlcpy(newstr, s, ssize);
 	return (newstr);
 }
