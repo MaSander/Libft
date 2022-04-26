@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+
+# Testes
+/libft/libftTester
+/libft/libft-unit-test
