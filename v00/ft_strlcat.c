@@ -6,13 +6,11 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/06 21:02:50 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/23 02:28:40 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:13:57 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
-#include <string.h>
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

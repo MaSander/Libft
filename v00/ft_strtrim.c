@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:51:15 by msander-          #+#    #+#             */
-/*   Updated: 2022/01/14 01:10:31 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:12:02 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
-#include <stdio.h>
 
 size_t	find_trimmed_amount(char const *s1, char const *set)
 {

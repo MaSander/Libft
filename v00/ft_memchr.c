@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 11:47:55 by msander-          #+#    #+#             */
-/*   Updated: 2022/01/12 02:05:38 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:15:06 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <stdio.h>
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {

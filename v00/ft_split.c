@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 22:28:25 by msander-          #+#    #+#             */
-/*   Updated: 2022/01/13 07:57:19 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/25 19:14:40 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 static	int	ft_occurrences(const char *s, char c)
 {
