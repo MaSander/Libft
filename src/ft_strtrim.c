@@ -6,43 +6,27 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:51:15 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/25 19:12:02 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/28 21:18:51 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	find_trimmed_amount(char const *s1, char const *set)
-{
-	size_t	len;
-
-	len = 1;
-	while (*s1)
-	{
-		if (ft_strrchr(set, *s1) == 0)
-			len++;
-		s1++;
-	}
-	return (len);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	char	*trimmed;
+	/*
+	buscar o primeiro char fora de set
+	saber o ultimo char fora de set
+	criar nova string do primeiro ao ultimo char
+	*/
+	size_t trimmedlen;
 
-	i = 0;
-	if (set == NULL)
+	if(!s1 || !set)
 		return (NULL);
-	trimmed = ft_calloc(find_trimmed_amount(s1, set), 1);
-	while (*s1)
-	{
-		if (ft_strrchr(set, *s1) == 0)
-		{
-			trimmed[i] = *s1;
-			i++;
-		}
+	while(*s1 && ft_strchr(set, *s1))
 		s1++;
-	}
-	return (trimmed);
+	trimmedlen = ft_strlen(s1);
+	while(trimmedlen && ft_strchr(set, s1[trimmedlen]))
+		trimmedlen--;
+	return (ft_substr(s1, 0, trimmedlen + 1));
 }
