@@ -8,7 +8,7 @@
             "name": "Libft",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/v00/a.out",
+            "program": "${workspaceFolder}/src/a.out",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",

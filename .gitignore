@@ -1,4 +1,4 @@
 # Testes
-./src/libftTester
-./src/libft-unit-test
-./src/*.o
+.src/libftTester
+.src/libft-unit-test
+/src/.o
