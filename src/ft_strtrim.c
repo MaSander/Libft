@@ -6,7 +6,7 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:51:15 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/28 21:18:51 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/28 22:16:46 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	/*
-	buscar o primeiro char fora de set
-	saber o ultimo char fora de set
-	criar nova string do primeiro ao ultimo char
-	*/
 	size_t trimmedlen;
 
 	if(!s1 || !set)
