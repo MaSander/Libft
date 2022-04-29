@@ -6,7 +6,7 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:43:54 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/28 02:55:16 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/29 05:44:35 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *node;
+	t_list	*node;
 
-	if(new)
+	if (new)
 	{
 		if (*lst)
 		{

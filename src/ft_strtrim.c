@@ -6,7 +6,7 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:51:15 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/28 22:16:46 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/29 05:38:51 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t trimmedlen;
+	size_t	trimmedlen;
 
-	if(!s1 || !set)
+	if (!s1 || !set)
 		return (NULL);
-	while(*s1 && ft_strchr(set, *s1))
+	while (*s1 && ft_strchr(set, *s1))
 		s1++;
 	trimmedlen = ft_strlen(s1);
-	while(trimmedlen && ft_strchr(set, s1[trimmedlen]))
+	while (trimmedlen && ft_strchr(set, s1[trimmedlen]))
 		trimmedlen--;
 	return (ft_substr(s1, 0, trimmedlen + 1));
 }

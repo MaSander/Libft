@@ -6,14 +6,16 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 03:51:05 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/28 01:06:21 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/29 05:41:32 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "libft.h"
 
-// void    ft_lstdelone(t_list *lst, void (*del)(void*))
-// {
-//     // sei la
-//     free(((void *) del(lst)));
-// }
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
+{
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
+}

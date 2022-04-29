@@ -6,7 +6,7 @@
 /*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:43:55 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/28 01:36:35 by msander-         ###   ########.fr       */
+/*   Updated: 2022/04/29 05:44:52 by msander-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 
 void	*ft_calloc(size_t num, size_t size)
 {
-	size_t	*ptr;
+	void	*ptr;
+	size_t	size_alloc;
 
+	size_alloc = num * size;
+	if (((size_alloc / size) != num) || ((size_alloc / num) != size))
+		return (NULL);
 	ptr = malloc(num * size);
 	if (!ptr)
 		return (NULL);
