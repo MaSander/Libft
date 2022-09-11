@@ -23,6 +23,12 @@ void	*ft_calloc(size_t num, size_t size)
 	ptr = malloc(num * size);
 	if (!ptr)
 		return (NULL);
-	ft_bzero(ptr, num * size);
+	size = 0;
+	num = num * size;
+	while (num--)
+	{
+		((unsigned char *)s)[size] = 0;
+		size++;
+	}
 	return (ptr);
 }
