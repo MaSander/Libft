@@ -18,6 +18,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		i1;
 	int		i2;
 	char	*str;
+	
+	//TODO introduzir sizeof
 
 	i1 = ft_strlen(s1);
 	i2 = ft_strlen(s2);
