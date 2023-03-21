@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: msander <msander@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 14:43:55 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/29 05:44:52 by msander-         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:18:49 by msander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	*ft_calloc(size_t num, size_t size)
 	num = num * size;
 	while (num--)
 	{
-		((unsigned char *)s)[size] = 0;
+		((unsigned char *)ptr)[size] = 0;
 		size++;
 	}
 	return (ptr);

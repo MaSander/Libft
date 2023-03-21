@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msander- <msander-@student.42sp.org.br     +#+  +:+       +#+        */
+/*   By: msander <msander@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 19:18:11 by msander-          #+#    #+#             */
-/*   Updated: 2022/04/25 19:14:22 by msander-         ###   ########.fr       */
+/*   Updated: 2023/03/21 20:21:10 by msander          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 }
 
 // new
-char	*ft_strjoin(char *str1, char *str2)
+char	*_ft_strjoin(char *str1, char *str2)
 {
 	char	*result;
 	int		len;
